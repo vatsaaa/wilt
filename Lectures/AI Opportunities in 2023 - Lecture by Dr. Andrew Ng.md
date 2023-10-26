@@ -20,7 +20,7 @@
 - **Lensa** was an indefensible use case as it did not add value; **AirBnB** or **Uber** are defensible because these create value
 - The work ahead is to find the many diverse, value adding and defensible use cases
 
-![Potential AI Projects.jpeg](PotentialAIProjects.jpeg)
+![Potential AI Projects.jpeg](images/PotentialAIProjects.jpeg)
 - Refer to the "Potential AI projects space curve"
 	- Advertising, and web search are the only large money making domains, with millions of users
 	- As we go to the right of the curve, some example projects of interest may be:
@@ -32,8 +32,8 @@
 		
 			`Instead of needing to worry about pictures of pizza AI community will create tools to enable the IT department of the pizza factory to train an AI system on their own pizzas. Thus, to realise the value of $5 mn by leveraging some low/no code tools for AI`
 
-![TheAIStack.png](TheAIStack.png)
-- Refering to the AI Stack
+![AI Stack](images/TheAIStack.png)
+- Referring to the AI Stack
 	- `H/W semi-conductor layer` at bottom, very capital intensive and very concentrated
 	- `Infrastructure layer` above the semi-conductor later is also highly capital intensive and very concentrated
 	- `Developer tools layer` is hyper-competitive, and only a few will be winners 
