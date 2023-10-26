@@ -8,7 +8,7 @@ share:
 - is a saved query on tables of a DB
 - is referenced to, in queries, as if it were a table
 
-Example:
+**Example:**
 ```sql
 CREATE VIEW user_purchase_summary AS SELECT
   u.id as user_id,
@@ -26,7 +26,7 @@ _Every time a query referencing view/s is executed, it first computes the result
 - A regular view is “materialized” by storing tuples of the view in the database (TODO: ???)
 - can have index structures and hence database access to materialized views can be much faster than recomputing the view
 
-Example:
+**Example:**
 ```sql
 CREATE MATERIALIZED VIEW user_purchase_summary AS SELECT
   u.id as user_id,
@@ -42,18 +42,17 @@ JOIN purchases p ON p.user_id = u.id;
 2. Because it’s stored as if it were a table, indexes can be built on the columns of a materialized view
 3. Once a view is materialized, it is only accurate until the underlying base relations are modified. The process of updating a materialized view in response to changes in underlying  is called _view maintenance._
 
-In principle: Materialized views should update automatically. A “view” implies an anchored perspective on changing inputs. Think back to how regular views work: results are constantly changing as the underlying data changes. Materialization just implies that the transformation is done proactively.
+A “view” is an anchored perspective on changing inputs, results are constantly changing as the underlying data changes. Materialization just implies that the transformation is done proactively. So, "materialized views" should update automatically. 
 
-In practice: It would seem there is no consensus. Some databases have materialized views that must be manually refreshed. A few have implemented automatic updates, albeit with long lists of limitations.
+However, in practice, some databases need materialized views to be manually refreshed and others have implemented automatic updates, albeit with limitations.
 
-- MySQL does not support materialized view as of now. Oracle, Snowflake, MongoDB, Redshift, PostgreSQL all others do.
+**Note:** MySQL does not support materialized view as of now. Oracle, Snowflake, MongoDB, Redshift, PostgreSQL all others do.
 
-### How are materialized views useful
-- Primarily used to cache the results of complex queries that could even bring down the DB if run frequently as regular views
-- give us the ability to define (using SQL) any complex transformation of our data, and leave it to the database to maintain the results in a “virtual” table.
-- Use cases where 
-	(a) SQL query is known ahead of time and needs to be repeatedly recalculated
-	(b) It’s valuable to have low end-to-end latency from when data originates to when it is reflected in a query
-	(c) It’s valuable to have low-latency query response times, high concurrency, or high volume of queries
+### Materialized views are used...
+- when SQL query is known ahead of time and needs to be repeatedly recalculated
+- primarily for caching the results of extremely heavy and complex queries that cannot be run frequently as regular views
+- as ability to define (using SQL) any complex transformation of data in DB, and let the DB maintain the results in a “virtual” table.
+- when low end-to-end latency is required between when data originates to when it is reflected in a query
+- when low-latency query response times with high concurrency or high volume of queries is expected
 ### References
 - [Materialized views](https://materialize.com/guides/materialized-views/)
