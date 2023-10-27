@@ -5,11 +5,11 @@ For the same kinds of complex SQL joins, aggregations, and transformations *Stre
 
 In traditional DBs, data is stored in tables matching the structure of the inserts & updates and all the computation work happens on read queries.
 
-![Traditional DB](./images/TraditionalDB.png)
+![Traditional DB](images/TraditionalDB.png)
 
 A streaming database moves the work to the write side: Instead of just storing data on writes, a streaming database asks for the queries upfront in the form of Materialized Views and incrementally updates results as input data arrives.
 
-![Streaming DB](./images/StreamingDB.png)
+![Streaming DB](images/StreamingDB.png)
 
 ### Origins
 In the capital markets vertical, where the value of fast computation over continuous data is highest. StreamBase and KX System were the early flavours of streaming databases. However, these were more "event processing frameworks" than databases. These early generation of "streaming databases" optimised for unique requirements of hedge funds and trading desks and not universality and accessibility.
@@ -17,7 +17,7 @@ In the capital markets vertical, where the value of fast computation over contin
 Early streaming DB tools implemented SQL-like control languages. In StreamBase, resources were created with DDL statements like ```CREATE INPUT STREAM```. But the SQL was just surface level, users still needed to be streaming systems experts first and foremost.
 
 SQL below doesn’t care if the data is static or actively updating. It has the info a streaming database needs to continually provide updated result sets as the soon as the data changes.
-![Sample SQL](./images/SampleSQL-StreamingDB.png)
+![Sample SQL](images/SampleSQL-StreamingDB.png)
 
 Tools like ksqlDB and Flink took the SQL control layer implementation further, allowing users to define transformations in SQL. However, users coming from traditional databases still had a lot of challenging streaming concepts to work around, like eventual consistency.
 
